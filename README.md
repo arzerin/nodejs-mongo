@@ -1,6 +1,6 @@
 How to run the app--
 
-# npm init
+Type:: npm init
 # nano package.json
 # nano app.js
 # npm install express
