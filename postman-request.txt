@@ -1,4 +1,4 @@
-Sample postman request to create book, body as raw , json:
+Sample postman request for create book to http://localhost:3100/books, body as raw , json:
 
 {
     "title": "Test Book - 1",
@@ -20,3 +20,5 @@ Sample postman request to create book, body as raw , json:
         }
     ]
 }
+
+Sample postman request for delete book to http://localhost:3100/books/6783810d0f1b14972d84b403
