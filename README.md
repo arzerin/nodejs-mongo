@@ -1,6 +1,6 @@
 How to run the app--
 
-Type if there is no pacage.json:: <br/>
+Type if there is no package.json:: <br/>
 npm init<br/>
 
 Type to create the package.json file :: <br/>
