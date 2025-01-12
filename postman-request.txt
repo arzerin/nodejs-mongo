@@ -1,0 +1,22 @@
+Sample postman request to create book, body as raw , json:
+
+{
+    "title": "Test Book - 1",
+    "author": "ZERIN",
+    "rating": 9,
+    "pages": 260,
+    "genres": [
+        "productivity",
+        "self improvement"
+    ],
+    "reviews": [
+        {
+            "name": "Yoshi",
+            "body": "Great Book"
+        },
+        {
+            "name": "Mario",
+            "body": "Nice Book"
+        }
+    ]
+}
