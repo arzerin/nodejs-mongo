@@ -5,6 +5,10 @@ const { ObjectId } = require('mongodb')
 //init app & middleware
 const app = express()
 
+// Middleware to parse JSON body
+//In Express, to parse JSON data in the request body, you must use the express.json() middleware. Without this middleware, req.body will be undefined.
+app.use(express.json());  // <-- Add this line
+
 //db connection
 let db 
 
@@ -25,13 +29,13 @@ connectToDb((err) => {
 app.listen(3100, () => {
     console.log('app listening on port 3100')
 })
-    */
+*/
 
 //routes
 
 app.get('/', (req, res) => {
     //res.json({msg: "Welcome to API"})
-    res.send('<h1> Hello, World! </h1>');
+    res.send('Hello, World!');
 })
 
 
@@ -72,4 +76,33 @@ app.get('/books/:id', (req, res) => {
     } else {
         res.status(500).json({error: "Not a vaid doc id"})
     }
+})
+
+app.post('/books', (req, res) => {
+    const book = req.body
+
+    /*
+    console.log('My Request Data:', JSON.stringify({
+        body: req.body,
+        query: req.query,
+        params: req.params,
+    }, null, 2)); 
+    */
+    console.log("Got Params")
+    console.log('Request Body:', req.body); 
+    console.log(book)
+    
+
+
+    db.collection('books')
+    .insertOne(book)
+    .then( result => {
+        res.status(200).json(result)
+    })
+    .catch( err => {
+        console.error(err)  // Log the error for more details
+        res.status(500).json({error: "Could not create a new document"})
+    })
+    
+
 })
